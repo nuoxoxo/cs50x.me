@@ -2,11 +2,10 @@
 #include <stdio.h>
 
 // re-do on Jan27, orginally dropped on Jan15
-
 int main(void)
 {
     int n;
-
+    
     do
     {
         n = get_int("Height: ");
@@ -21,18 +20,13 @@ int main(void)
         {
             if (j > i) // OR if ( j >= i + 1)
             {
-                printf(" ");
-                
+                printf(" ");            
             }
             else
             {
                 printf("#");
             }
-            
-        
-
         }
-        
         printf("  ");
         
         for (int k = 0; k < n; k++) 
@@ -40,13 +34,8 @@ int main(void)
             if (k < i + 1)
             {
                 printf("#");
-                
             }
-            
         } 
         printf("\n");
-
     }
-    
-
 }
