@@ -1,6 +1,6 @@
 import csv
 import sys
-import re
+# import re
 
 # Check correct usage
 if len(sys.argv) != 3:
