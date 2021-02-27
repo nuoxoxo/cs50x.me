@@ -1,4 +1,4 @@
-#### Week 7 `.. Songs`
+#### Week 7 `Movies, Songs`
 #### Week 6 `DNA, Worldcup, Sentimental`
 #### Week 5 `Speller, Inheritance`
 #### Week 4 `Recover, Filter, Volume`
