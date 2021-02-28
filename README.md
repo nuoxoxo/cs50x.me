@@ -1,13 +1,13 @@
-Week 7 `Movies, Songs`
+Week 7 `Songs, Movies, Fiftyville`
 
-Week 6 `DNA, Worldcup, Sentimental`
+Week 6 `Worldcup, Sentimental (Mario, Cash, Credit, Readability), DNA`
 
-Week 5 `Speller, Inheritance`
+Week 5 `Inheritance, Speller`
 
-Week 4 `Recover, Filter, Volume`
+Week 4 `Volume, Filter, Recover`
 
-Week 3 `Tideman, Runoff, Plurality, Sort`
+Week 3 `Sort, Plurality, Complete, Runoff,Tideman`
 
-Week 2 `Substitution, Caesar, Readability, Scrabble`
+Week 2 `Scrabble, Readability, Caesar, Substitution`
 
-Week 1 `Credit, Cash, Mario, Population`
+Week 1 `Population, Mario, Cash, Credit`
