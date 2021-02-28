@@ -6,6 +6,7 @@ Week 3 `Sort, Plurality, Complete, Runoff,Tideman`\
 Week 2 `Scrabble, Readability, Caesar, Substitution`\
 Week 1 `Population, Mario, Cash, Credit`
 
+                                    ##
                                    #  #
                                   ##  ##
                                  ###  ###
@@ -70,3 +71,4 @@ Week 1 `Population, Mario, Cash, Credit`
                                  ###  ###
                                   ##  ##
                                    #  #    
+                                    ##
