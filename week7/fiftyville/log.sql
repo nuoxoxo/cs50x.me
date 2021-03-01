@@ -2,11 +2,9 @@
 --The THIEF is: Ernest
 -----------------------
 
-
 --------------------------------------------------------------------
 ---Cmds <.table> and <.schema table_name> are used at every step.---
 --------------------------------------------------------------------
-
 
 --On July 28, 2020, the suspect made a phonecall that matches a witness' account
 --Raymond (witness no.3) said that the thief, upon exiting, called someone and talked for < 1 min
@@ -79,10 +77,7 @@ select bank_accounts.person_id from bank_accounts
 where bank_accounts.account_number in (
 
 select account_number from atm_transactions
-where day = 28 and month=7 and year = 2020 and transaction_type = 'withdraw' and atm_location = 'Fifer Street')
-)
-)
-)
+where day = 28 and month=7 and year = 2020 and transaction_type = 'withdraw' and atm_location = 'Fifer Street'))))
 
 
 -----------------------
