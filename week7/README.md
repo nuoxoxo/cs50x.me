@@ -1,4 +1,4 @@
-# Songs
+## Songs
 
 1. `SELECT name FROM songs`
 2. `SELECT name FROM songs ORDER BY tempo ASC`
@@ -22,7 +22,7 @@ WHERE name = "Broadcast");
 8. `SELECT name FROM songs WHERE name LIKE '%feat.%'`
 </br>
 
-# Movies
+## Movies
 
 1. `SELECT title FROM movies WHERE year = 2008;`
 2. `SELECT birth FROM people WHERE name = "Emma Stone";`
@@ -30,7 +30,13 @@ WHERE name = "Broadcast");
 4. `SELECT COUNT(movie_id) FROM ratings WHERE rating = 10.0;`
 5. `SELECT title, year FROM movies WHERE title LIKE 'Harry Potter%' ORDER BY year ASC;`
 6. `SELECT AVG(rating) FROM ratings INNER JOIN movies ON movie_id = id WHERE year = 2012;`
-7. `SELECT title, rating FROM movies INNER JOIN ratings ON id = movie_id WHERE year = 2010 ORDER BY rating DESC, title ASC;`
+7. 
+```sql
+SELECT title, rating FROM movies 
+INNER JOIN ratings ON id = movie_id 
+WHERE year = 2010 
+ORDER BY rating DESC, title ASC;
+```
 8. 
 ```sql
 SELECT name FROM people
