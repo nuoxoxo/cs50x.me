@@ -1,5 +1,5 @@
 | 🌱  | 🌿 |
-| :--- | :--- |
+| :---: | :--- |
 | 7  | Songs, Movies, Fiftyville  |
 | 6  | Worldcup, Sentimental (Mario, Cash, Credit, Readability), DNA  |
 | 5  | Inheritance, Speller  |
