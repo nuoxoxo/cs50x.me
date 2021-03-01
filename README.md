@@ -9,5 +9,5 @@
 | 1  | Population, Mario, Cash, Credit  |
 
 ---
-updated:\
+added:\
 `flip` `rhombus`
