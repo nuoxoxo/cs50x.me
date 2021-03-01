@@ -8,5 +8,4 @@ Week 1 `Population, Mario, Cash, Credit`
 
 ---
 added:\
-`mario_flip.c`\
-`rhombus.py`
+`mario_flip.c` `rhombus.py`
