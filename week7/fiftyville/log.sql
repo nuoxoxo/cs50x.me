@@ -1,15 +1,16 @@
------------------------
---The THIEF is: Ernest
------------------------
+------------------------------------------------------------------
+-- Cmds <.table> and <.schema table_name> are used at every step. --
+--------------------------------------------------------------------
 
---------------------------------------------------------------------
----Cmds <.table> and <.schema table_name> are used at every step.---
---------------------------------------------------------------------
+--------------------------
+/* The THIEF is: Ernest */
+--------------------------
 
 --On July 28, 2020, the suspect made a phonecall that matches a witness' account
 --Raymond (witness no.3) said that the thief, upon exiting, called someone and talked for < 1 min
 
-select name from people
+select name 
+from people 
 inner join phone_calls
 on people.phone_number = phone_calls.caller
 where day = 28 and month = 7 and year = 2020 and duration < 60
@@ -20,9 +21,10 @@ and name in (
 
 select name from people
 inner join passengers
-on people.passport_number = passengers.passport_number
+on people.passport_number = passengers.passport_number 
 where flight_id = (
-select flights.id from flights where day = 29 and month = 7 and year = 2020
+select flights.id from flights 
+where day = 29 and month = 7 and year = 2020
 order by hour asc limit 1)
 ) and people.license_plate in (
 
@@ -43,9 +45,12 @@ where day = 28 and month = 7 and year = 2020 and transaction_type = 'withdraw' a
 )
 
 
-------------------------------
---The ACCOMPLICE is: Berthold
-------------------------------
+---------------------------------
+/* The ACCOMPLICE is: Berthold */
+---------------------------------
+
+--Based on a phone call on the receving end 
+--that matches the time and the duration 
 
 select name from people
 inner join phone_calls
@@ -80,9 +85,9 @@ select account_number from atm_transactions
 where day = 28 and month=7 and year = 2020 and transaction_type = 'withdraw' and atm_location = 'Fifer Street'))))
 
 
------------------------
---The thief ESCAPED TO:
------------------------
+----------------------------------
+/* The thief ESCAPED TO: London */
+----------------------------------
 
 select city from airports
 inner join flights
