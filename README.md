@@ -1,6 +1,6 @@
 | 🌱  | 🌿 |
 | :---: | :--- |
-| 8  | Trivia, Homepeji  |
+| 8  | Trivia, Homepage  |
 | 7  | Songs, Movies, Fiftyville, Houses  |
 | 6  | Worldcup, Sentimental (Mario, Cash, Credit, Readability), DNA  |
 | 5  | Inheritance, Speller  |
