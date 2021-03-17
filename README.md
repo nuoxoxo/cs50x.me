@@ -8,12 +8,3 @@
 | 3  | Sort, Plurality, Runoff, Tideman  |
 | 2  | Scrabble, Readability, Caesar, Substitution  |
 | 1  | Population, Mario, Cash, Credit  |
-
-###### added: `flip` `rhombus`
----
-
-| web  | 🌵 |
-| :---: | :--- |
-| 0 | Trivial, Homepage |
-
-
