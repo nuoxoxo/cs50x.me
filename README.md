@@ -8,3 +8,12 @@
 | 3  | Sort, Plurality, Runoff, Tideman  |
 | 2  | Scrabble, Readability, Caesar, Substitution  |
 | 1  | Population, Mario, Cash, Credit  |
+
+| web  | 🌵 |
+| :---: | :--- |
+| F | Capstone |
+| 4 | Network |
+| 3 | Mail |
+| 2 | Commerce |
+| 1 | Wiki |
+| 0 | Search |
