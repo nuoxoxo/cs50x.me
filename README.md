@@ -9,7 +9,7 @@
 | 2  | Scrabble, Readability, Caesar, Substitution  |
 | 1  | Population, Mario, Cash, Credit  |
 
-| web  | 🌵 |
+| 🌵 | Web |
 | :---: | :--- |
 | F | Capstone |
 | 4 | Network |
