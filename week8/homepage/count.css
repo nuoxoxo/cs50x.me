@@ -1,0 +1,58 @@
+@font-face {
+    font-family: main-font;
+    src: url(../_font/cm.ttf);
+}
+
+body{
+    font-family: "main-font";
+}
+
+nav {
+    opacity: 0.7;
+    display: grid;
+    align-items: center;
+    display: block;
+}
+
+main{
+    min-height:81vh;
+    display:grid;
+    place-items:center;
+}
+
+h1{
+    font-size: 4rem;
+}
+
+#value {
+    font-size: 4rem;
+    font-weight: bold;
+  }
+
+.container{
+    text-align: center;
+}
+
+.btn{
+    font-family: "main-font";
+    display:inline-block;
+    padding: 0.375rem 0.75rem;
+    font-size: 1.255rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    margin: 0.9rem;
+}
+
+.btn:hover{
+    color:blanchedalmond;
+    background:black;
+}
+
+.btn-back{
+    outline: none;
+    font-family: "main-font";
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}

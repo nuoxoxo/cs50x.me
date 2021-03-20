@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  
+  <style>
+
+    @font-face {
+      font-family: text-font;
+      src: url(../_font/co.ttf);
+    }
+
+    html {
+      display: block;
+      
+      height:100%;
+      width: 100%;
+      /* align-items: center; */
+      /* justify-content: center; */
+      /* align-content: center; */
+    }
+
+    body { 
+      font-family: "text-font";
+      background-color:#ADD8E6; 
+    }
+    .btn {
+      font-family: "text-font";
+    }
+    .btn-back {
+      font-family: "text-font";
+    }
+    nav {
+    opacity: 0.7;
+    display: grid;
+    align-items: center;
+    display: flex;
+    padding: 10px;
+}
+    .container {
+      /* margin-right: 0 auto;
+      margin-left: 0 auto; */
+
+      /* width: 100%;
+      max-width: 100%;
+      height: 100%;       */
+      /* background: #F5F5DC; */
+      margin-top: 64px;
+      min-height: calc(50vh - 10rem);
+      max-width: 420px;
+      /* padding: auto; */
+      box-shadow: 0px 0px 96px 0px rgba(0,0,0,0.75);
+    }
+  </style>
+  <title>Grocery</title>
+</head>
+
+<body class="bg-dark">
+
+  <nav>
+    <div class="nav-center">
+          <a href="../home.html">
+            <button class="btn btn-back">
+                back
+            </button>
+          </a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <div id="main" class="card">
+          <div class="card-content">
+            <!-- <span class="card-title">Type your stuff</span> -->
+            <h5 class="card-title">Type your stuff</h5>
+            <div class="row">
+              <form id="task-form">
+                <div class="input-field col s12">
+                  <input type="text" name="task" id="task" autocomplete="off">
+                  <label for="task">New</label>
+                </div>
+                <input type="submit" value="Add Task" class="btn">
+              </form>
+            </div>
+          </div>
+
+          <div class="card-action">
+            <!-- <h5 class="card-title" id="task-title">Pending tasks</h5> -->
+            <h5 class="card-title">Pending jobs</h5>
+
+            
+            
+            <div class="input-field col s12">
+              <input type="text" name="filter" id="filter" autocomplete="off">
+              <label for="filter">Filter</label>
+            
+            <!-- </div> --> <!-- MOVE 2 LINES BELOW-->
+
+            <ul class="collection"></ul>
+
+            </div>
+            <a href="#" class="clear-tasks btn black">Clear Tasks</a>
+
+          
+          
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="app-grocery.js"></script>
+
+
+</body>
+</html>

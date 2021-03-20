@@ -1,0 +1,51 @@
+@font-face {
+    font-family: text-font;
+    src: url(../_font/cm.ttf);
+}
+
+nav {
+    opacity: 0.7;
+    display: grid;
+    align-items: center;
+    display: block;
+}
+
+main {
+    display: grid;
+    place-items: center;
+    min-height: calc(100vh - 10rem);
+}
+
+.btn-flip {
+    outline: none;
+    font-family: "text-font";
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2.5rem;
+    color: hexColor;
+    font-weight: 700;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    opacity: 0.7;
+    border: 1px solid white;
+    padding: 10px 20px;
+    cursor: grab;
+}
+
+.btn-flip:active {
+    cursor: grabbing;
+}
+
+.btn-flip:hover {
+    text-decoration: none;
+}
+
+.btn-back {
+    outline: none;
+    font-family: "main-font";
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
