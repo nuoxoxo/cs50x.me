@@ -47,7 +47,6 @@ btns.forEach(function (btn) {
   })
 });
 ```
-##
 ### flip
 ```html
 <body>
