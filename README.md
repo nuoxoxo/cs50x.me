@@ -9,6 +9,7 @@
 | 2  | Scrabble, Readability, Caesar, Substitution  |
 | 1  | Population, Mario, Cash, Credit  |
 
+<!--
 | 🌵 | Web |
 | :---: | :--- |
 | F | Capstone |
@@ -17,3 +18,4 @@
 | 2 | Commerce |
 | 1 | Wiki |
 | 0 | Search |
+-->
