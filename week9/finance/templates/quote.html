@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% blcok title %}Quote{% endblock %}
+
+{% block main %}
+    <form action="/quote" method="post">
+        <div vlass="form-group">
+            <h1>gimme the name of the stock you wanna look at</h1>
+            <input type="text", placeholder="Stock", name="symbol", autocomplete="off" autofocus>
+        </div>
+        <button type="submit">Get Quote</button>
+    </form>
+{% endblock %}
