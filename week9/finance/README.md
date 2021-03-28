@@ -1,6 +1,4 @@
-Specification
-
-##
+## SPECIFICATION
 
 REGISTER
 ```py
