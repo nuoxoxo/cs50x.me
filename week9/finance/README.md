@@ -17,6 +17,11 @@ def register():
             return apology("Passwords don't match.")
 
         else:
+        
+            ## INSERT the new user into users: 
+            ## store a hash of the password, not the password itself
+            ## Hash the user’s password with generate_password_hash
+        
             #check_username = len(db.execute("SELECT * FROM users WHERE username = {username}", username=request.form.get("username")))
             if len(db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))) != 0:
                 return apology("This username already taken. Please choose another one.")
