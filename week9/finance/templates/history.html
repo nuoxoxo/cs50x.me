@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+History
+{% endblock %}
+
+{% block main %}
+
+<table>
+    <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Shares</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for line in history %}
+
+        <tr>
+            <td>{{ history["Symbol"] }}</td>
+            <td>{{ history["Shares"] }}</td>
+            <td>{{ history["Price"] }}</td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
