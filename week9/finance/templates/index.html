@@ -5,14 +5,24 @@
 <table>
     <thead>
         <tr>
-            <th>Ticker</th>
+            <th>Symbol</th>
             <th>Shares</th>
             <th>Price</th>
             <th>Total</th>
         </tr>
     </thead>
     <tbody>
-
+        <tr>
+            {% for stock in stocks %}
+            <td>{{ stock["Symbol"] }}</tb>
+            <td>{{ stock["Shares"] }}</tb>
+            <td>{{ stock["Price"] }}</tb>
+            <td>{{ stock["Total"] }}</tb>
+            {% endfor %}
+        </tr>
+        <tr>Balance</tr>
+            <td>{{ balance }}</td>
+        </tr>
     </tbody>
 </table>
 
