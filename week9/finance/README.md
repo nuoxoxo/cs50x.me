@@ -1,7 +1,7 @@
 `official order`
 - [x] sql
-- [ ] register
-  - [ ] register.html
+- [x] register
+  - [x] register.html
 - [ ] quote
   - [ ] quote.html 
   - [ ] quoted.html
