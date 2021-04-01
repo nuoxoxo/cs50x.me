@@ -1,15 +1,1 @@
-`official order`
-- [x] sql
-- [ ] register
-  - [ ] register.html
-- [ ] quote
-  - [ ] quote.html 
-  - [ ] quoted.html
-- [ ] buy
-  - [ ] buy.html
-- [ ] index
-  - [ ] index.html
-- [ ] sell
-  - [ ] sell.html
-- [ ] history
-  - [ ] history.html
+
