@@ -1,31 +1,30 @@
 {% extends "layout.html" %}
 
 {% block title %}
-History
+    History
 {% endblock %}
 
 {% block main %}
 
-    <div class="container">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">Symbol</th>
-                    <th scope="col">Shares</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in history %}
-                    <tr>
-                        <td>{{ row["Symbol"] }}</td>
-                        <td>{{ row["Shares"] }}</td>
-                        <td>{{ row["Price"] }}</td>
-                        <td>{{ row["Timestamp"] }}</td>
-                    </tr>
-                {% endfor %}
-        </table>
-   </div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Symbol</th>
+            <th scope="col">Shares</th>
+            <th scope="col">Quote</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        {% for line in history %}
+            <td>{{ line["Symbol"] }}</td>
+            <td>{{ line["Shares"] }}</td>
+            <td>{{ line["Quote"] }}</td>
+            <td>{{ time["Time"] }}</td>
+        {% endfor %}
+        </tr>
+    </tbody>
+</table>
 
 {% endblock %}

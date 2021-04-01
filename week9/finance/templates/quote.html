@@ -1,14 +1,14 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Quote
+    Quote
 {% endblock %}
 
 {% block main %}
     <form action="/quote" method="post">
         <div>
-            <h1>gimme the name of the stock you wanna look at</h1>
-            <input type="text", placeholder="Stock", name="symbol", autocomplete="off" autofocus>
+            <h1></h1>
+            <input type="text", placeholder="Enter the ticker symbol of a stock", name="symbol", autocomplete="off" autofocus>
         </div>
         <button type="submit" class="btn">Get Quote</button>
     </form>

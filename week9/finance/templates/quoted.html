@@ -1,17 +1,15 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Stock Quote of {{ symbol }}
+    Stock Quote of {{ symbol }}
 {% endblock %}
 
 {% block main %}
     <div class="container">
-        <!--<div class="alert" role="alert">-->
-        <div class="alert">
-           {{ symbol }} : The current price of a share is: {{ price }}
-        </div>
-        <div>
-           <a href="/buy"><button type="button" class="btn">Buy {{ symbol }}</button></a>
-        </div>
+        <div><button type="button" class="btn btn-light">{{ symbol }}</button></div>
+        <br>
+        <div>{{ name }} : The current price of a share is: {{ quote }}</div>
+        <br>
+        <div><a href="/buy"><button type="button" class="btn btn-warning">Buy {{ symbol }}</button></a></div>
     </div>
 {% endblock %}

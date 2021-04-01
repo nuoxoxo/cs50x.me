@@ -5,46 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <div class="container">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">Symbol</th>
-                    <th scope="col">Shares</th>
-                    <th scope="col">Quote</th>
-                    <th scope="col">Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!--{% for stock in stocks %}-->
-                <!--solution from stockoverflow changed above-->
-                <tr>
-                <!--{% for stock in stocks %}-->
-                {{ for stock in stocks }}
-                    <td>{{ stock["symbol"] }}</td>
-                    <td>{{ stock["shares"] }}</td>
-                    <td>{{ stock["quote"] }}</td>
-                    <td>{{ stock["total"] }}</td>
-                {% endfor %}
-                </tr>
 
-                <tr>
-                    <td>VALUE</td>
-                    <td colspan="2"></td>
-                    <td>{{ value }}</td>
-                </tr>
-                <tr>
-                    <td>CASH</td>
-                    <td colspan="2"></td>
-                    <td>{{ balance }}</td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="3"></td>
-                    <td>{{ assets }}</td>
-                </tr>
-            </tfoot>
-        </table>
-   </div>
+
+
 {% endblock %}
