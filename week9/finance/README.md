@@ -2,9 +2,9 @@
 - [x] sql
 - [x] register
   - [x] register.html
-- [ ] quote
-  - [ ] quote.html 
-  - [ ] quoted.html
+- [x] quote
+  - [x] quote.html 
+  - [x] quoted.html
 - [ ] buy
   - [ ] buy.html
 - [ ] index
