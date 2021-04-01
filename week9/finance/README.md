@@ -11,5 +11,5 @@
   - [ ] index.html
 - [ ] sell
   - [ ] sell.html
-- [ ] history
-  - [ ] history.html
+- [x] history
+  - [x] history.html
