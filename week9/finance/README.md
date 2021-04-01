@@ -6,7 +6,7 @@
   - [x] quote.html 
   - [x] quoted.html
 - [ ] buy
-  - [ ] buy.html
+  - [x] buy.html
 - [ ] index
   - [ ] index.html
 - [ ] sell
