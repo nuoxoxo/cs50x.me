@@ -8,6 +8,7 @@ from werkzeug.exceptions import default_exceptions, HTTPException, InternalServe
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from helpers import apology, login_required, lookup, usd
+from datetime import datetime
 
 # Configure application
 app = Flask(__name__)
@@ -43,11 +44,15 @@ if not os.environ.get("API_KEY"):
 
 
 
+
 ############################
 ##                        ##
 ##         sql cmd        ##
 ##                        ##
 ############################
+
+
+
 
 # CREATE TABLE history (
 # transaction_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -88,11 +93,16 @@ if not os.environ.get("API_KEY"):
     # CREATE TABLE sqlite_sequence(name,seq);
 
 
+
+
 ############################
 ##                        ##
 ##         Index          ##
 ##                        ##
 ############################
+
+
+
 
 @app.route("/")
 @login_required
@@ -101,11 +111,16 @@ def index():
     return render_template("index.html")
 
 
+
+
 ############################
 ##                        ##
 ##          Buy           ##
 ##                        ##
 ############################
+
+
+
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
@@ -115,9 +130,66 @@ def buy():
     if request.method == "GET":
         return render_template("buy.html")
 
-    # if request.method == "POST":
+    if request.method == "POST":
 
-    # return apology("TODO")
+        ## symbol err
+        if not request.form.get("symbol"):
+            return apology("must provide symbol")
+        elif lookup(request.form.get("symbol")) == None:
+            return apology("stock not found")
+
+        ## shares empty err
+        if request.form.get("shares") == None:
+            return apology("must provide number of shares")
+
+        ## set vars
+        stock_temp = request.form.get("symbol")
+        stock_temp = stock_temp.upper()
+        stock = lookup(stock_temp)
+        shares = request.form.get("shares")
+
+        ## shares format err
+        if not shares.isdigit():
+            return apology("shares should be a whole number")
+        elif int(shares) <= 0:
+            return apology("buy at least one share")
+
+
+        shares = int(shares)
+        quote = stock.get("price")
+        # quote = int(quote)
+        # quote = usd(quote)
+
+        cash = db.execute("SELECT cash FROM users WHERE id = (?)", session['user_id'])
+        balance = cash[0]["cash"]
+        # balance = int(balance)
+        # balance = usd(balance)
+
+        print(balance)
+
+        time = datetime.now()
+
+        total = shares * quote
+
+        if balance < total:
+            return apology("not enough energy")
+        else:
+            # transaction_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+            # symbol TEXT NOT NULL,
+            # quote INTEGER NOT NULL,
+            # shares INTEGER NOT NULL,
+            # total INTEGER NOT NULL,
+            # time DATETIME NOT NULL,
+            # u_id INTEGER NOT NULL,
+            # FOREIGN KEY(u_id) REFERENCES users(id));
+            balance -= total
+            symbol = stock.get("symbol")
+            db.execute("INSERT INTO history (symbol, quote, shares, total, time, u_id) VALUES(?, ?, ?, ?, ?, ?)", symbol, quote, shares, total, time, session["user_id"])
+            db.execute("UPDATE users SET cash = (?) WHERE id = (?)", balance, session["user_id"])
+
+        flash("({}) Successfully bought {} shares of {} at a price of {}\rCurrent balance: {}".format(time, shares, symbol, quote, balance))
+        return redirect("/")
+
 
 
 ############################
@@ -125,6 +197,9 @@ def buy():
 ##        History         ##
 ##                        ##
 ############################
+
+
+
 
 @app.route("/history")
 @login_required
@@ -145,12 +220,17 @@ def history():
     return render_template("history.html", history=history)
 
 
+
+
 ############################
 ##                        ##
 ##          login         ##
 ##  (distribution code)   ##
 ##                        ##
 ############################
+
+
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -187,12 +267,18 @@ def login():
     else:
         return render_template("login.html")
 
+
+
+
 ############################
 ##                        ##
 ##         logout         ##
 ##  (distribution code)   ##
 ##                        ##
 ############################
+
+
+
 
 @app.route("/logout")
 def logout():
@@ -205,11 +291,16 @@ def logout():
     return redirect("/")
 
 
+
+
 ############################
 ##                        ##
 ##         quote          ##
 ##                        ##
 ############################
+
+
+
 
 @app.route("/quote", methods=["GET", "POST"])
 @login_required
@@ -247,11 +338,17 @@ def quote():
     # return apology("TODO")
 
 
+
+
+
 ############################
 ##                        ##
 ##        register        ##
 ##                        ##
 ############################
+
+
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -282,17 +379,27 @@ def register():
     return render_template("register.html")
 
 
+
+
 ############################
 ##                        ##
 ##          Sell          ##
 ##                        ##
 ############################
 
+
+
+
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
     """Sell shares of stock"""
-    return apology("TODO")
+
+
+    return render_template("sell.html")
+    # return apology("TODO")
+
+
 
 
 ############################
@@ -300,6 +407,7 @@ def sell():
 ##  (distribution code)   ##
 ##                        ##
 ############################
+
 def errorhandler(e):
     """Handle error"""
     if not isinstance(e, HTTPException):
@@ -310,3 +418,6 @@ def errorhandler(e):
 # Listen for errors
 for code in default_exceptions:
     app.errorhandler(code)(errorhandler)
+
+
+#
