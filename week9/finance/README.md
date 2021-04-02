@@ -7,9 +7,9 @@
   - [x] quoted.html
 - [x] buy
   - [x] buy.html
-  - [ ] expected to find "112.00" in page
-- [ ] index
-  - [ ] index.html
+  - [x] ~~expected to find "112.00" in page~~
+- [x] index
+  - [x] index.html
 - [ ] sell
   - [ ] sell.html
 - [x] history
