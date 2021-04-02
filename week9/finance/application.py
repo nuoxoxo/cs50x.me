@@ -108,7 +108,44 @@ if not os.environ.get("API_KEY"):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    return render_template("index.html")
+
+    # transaction_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    # symbol TEXT NOT NULL,
+    # quote INTEGER NOT NULL,
+    # shares INTEGER NOT NULL,
+    # total INTEGER NOT NULL,
+    # time DATETIME NOT NULL,
+    # u_id INTEGER NOT NULL,
+    # FOREIGN KEY(u_id) REFERENCES users(id));
+
+    portfolio = db.execute("select symbol as symbol, sum(shares) as shares from history where u_id = (?) group by symbol", session["user_id"])
+
+    stocks = []
+    assets = 0
+
+    for row in portfolio:
+        # if stock.get("shares") != 0:
+        stock = lookup(row.get("symbol"))
+        quote = stock.get("price")
+
+        print(quote)
+
+        shares = row.get("shares")
+        total = shares * quote
+
+        row["quote"] = usd(quote)
+        row["total"] = usd(total)
+
+        assets += round(total, 2)
+        stocks.append(row)
+
+    cash = db.execute("select cash from users where id = (?)", session['user_id'])
+    balance = cash[0]['cash']
+
+    equity = assets
+    assets += balance
+
+    return render_template("index.html", stocks=stocks, equity=usd(equity), balance=usd(balance), assets=usd(assets))
 
 
 
@@ -160,7 +197,7 @@ def buy():
         # quote = int(quote)
         # quote = usd(quote)
 
-        cash = db.execute("SELECT cash FROM users WHERE id = (?)", session['user_id'])
+        cash = db.execute("SELECT cash FROM users WHERE id = (?)", session["user_id"])
         balance = cash[0]["cash"]
         # balance = int(balance)
         # balance = usd(balance)
@@ -215,7 +252,7 @@ def history():
 # u_id INTEGER NOT NULL,
 # FOREIGN KEY(u_id) REFERENCES users(id));
 
-    history = db.execute("SELECT symbol AS Symbol, shares AS Shares, quote AS Quote, time AS Time FROM history WHERE u_id = (?)", session['user_id'])
+    history = db.execute("SELECT symbol AS Symbol, shares AS Shares, quote AS Quote, time AS Time FROM history WHERE u_id = (?)", session["user_id"])
 
     return render_template("history.html", history=history)
 

@@ -5,7 +5,54 @@
 {% endblock %}
 
 {% block main %}
+    <table class="table table-striped table-center table-hover mx-auto ">
+        <thead>
+            <tr>
+            <th scope="col" style="text-align:left">Stock</th>
+            <th scope="col" style="text-align:center">Shares</th>
+            <th scope="col" style="text-align:center">Quote (Current)</th>
+            <th scope="col" style="text-align:right">Equity</th>
+            </tr>
+        </thead>
 
+        <tbody>
+            <!--<tr>-->
+            {% for stock in stocks %}
+            <tr>
+                <td style="text-align:left">{{ stock["symbol"] }}</td>
+                <td style="text-align:center">{{ stock["shares"] }}</td>
+                <td style="text-align:center">{{ stock["quote"] }}</td>
+                <td style="text-align:right">{{ stock["total"] }}</td>
+            </tr>
+            {% endfor %}
+            <!--</tr>-->
+        </tbody>
+    <!--</table>-->
+    <!--<br>-->
+    <!--<table class="table table-striped">-->
+        <thead>
+            <tr>
+            <th style="text-align:right" colspan=4 scope="col"><br>Account Overview</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan=2></td>
+                <td style="text-align:center">Total Equity</td>
+                <td style="text-align:right">{{ equity }}</td>
+            </tr>
+            <tr>
+                <td colspan=2></td>
+                <td style="text-align:center">Cash</td>
+                <td style="text-align:right">{{ balance }}</td>
+            </tr>
+            <tr>
+                <td colspan=2></td>
+                <td style="text-align:center">Total Assets</td>
+                <td style="text-align:right">{{ assets }}</td>
+            </tr>
+        </tbody>
 
+    </table>
 
 {% endblock %}
