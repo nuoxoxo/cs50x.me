@@ -43,15 +43,11 @@ if not os.environ.get("API_KEY"):
     raise RuntimeError("API_KEY not set")
 
 
-
-
 ############################
 ##                        ##
 ##         sql cmd        ##
 ##                        ##
 ############################
-
-
 
 
 # CREATE TABLE history (
@@ -64,35 +60,36 @@ if not os.environ.get("API_KEY"):
 # u_id INTEGER NOT NULL,
 # FOREIGN KEY(u_id) REFERENCES users(id));
 
-### ENTER IN finance.db IN ONE LINE
+# ENTER IN finance.db IN ONE LINE
 # CREATE TABLE history (transaction_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, symbol TEXT NOT NULL, quote INTEGER NOT NULL, shares INTEGER NOT NULL, total INTEGER NOT NULL, time DATETIME NOT NULL, u_id INTEGER NOT NULL, FOREIGN KEY(u_id) REFERENCES users(id));
 
-### RENAME JUST IN CASE
+# RENAME JUST IN CASE
 # ALTER TABLE hitsory
 # RENAME TO history
 
-### RESULT
+    # RESULT
+
     # CREATE TABLE users (
-        # id INTEGER,
-        # username TEXT NOT NULL,
-        # hash TEXT NOT NULL,
-        # cash NUMERIC NOT NULL DEFAULT 10000.00,
-        # PRIMARY KEY(id)
-        # );
+    # id INTEGER,
+    # username TEXT NOT NULL,
+    # hash TEXT NOT NULL,
+    # cash NUMERIC NOT NULL DEFAULT 10000.00,
+    # PRIMARY KEY(id)
+    # );
+
     # CREATE TABLE history (
-        # transaction_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-        # symbol TEXT NOT NULL,
-        # quote INTEGER NOT NULL,
-        # shares INTEGER NOT NULL,
-        # total INTEGER NOT NULL,
-        # time DATETIME NOT NULL,
-        # u_id INTEGER NOT NULL,
-        # FOREIGN KEY(u_id) REFERENCES users(id)
-        # );
+    # transaction_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    # symbol TEXT NOT NULL,
+    # quote INTEGER NOT NULL,
+    # shares INTEGER NOT NULL,
+    # total INTEGER NOT NULL,
+    # time DATETIME NOT NULL,
+    # u_id INTEGER NOT NULL,
+    # FOREIGN KEY(u_id) REFERENCES users(id)
+    # );
+
     # CREATE UNIQUE INDEX username ON users (username);
     # CREATE TABLE sqlite_sequence(name,seq);
-
-
 
 
 ############################
@@ -100,8 +97,6 @@ if not os.environ.get("API_KEY"):
 ##         Index          ##
 ##                        ##
 ############################
-
-
 
 
 @app.route("/")
@@ -118,7 +113,8 @@ def index():
     # u_id INTEGER NOT NULL,
     # FOREIGN KEY(u_id) REFERENCES users(id));
 
-    portfolio = db.execute("select symbol as symbol, sum(shares) as shares from history where u_id = (?) group by symbol", session["user_id"])
+    portfolio = db.execute(
+        "select symbol as symbol, sum(shares) as shares from history where u_id = (?) group by symbol", session["user_id"])
 
     stocks = []
     assets = 0
@@ -137,7 +133,8 @@ def index():
         row["total"] = usd(total)
 
         assets += round(total, 2)
-        stocks.append(row)
+        if shares != 0:
+            stocks.append(row)
 
     cash = db.execute("select cash from users where id = (?)", session['user_id'])
     balance = cash[0]['cash']
@@ -148,15 +145,11 @@ def index():
     return render_template("index.html", stocks=stocks, equity=usd(equity), balance=usd(balance), assets=usd(assets))
 
 
-
-
 ############################
 ##                        ##
 ##          Buy           ##
 ##                        ##
 ############################
-
-
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -169,28 +162,27 @@ def buy():
 
     if request.method == "POST":
 
-        ## symbol err
+        # symbol err
         if not request.form.get("symbol"):
             return apology("must provide symbol")
         elif lookup(request.form.get("symbol")) == None:
             return apology("stock not found")
 
-        ## shares empty err
+        # shares empty err
         if request.form.get("shares") == None:
             return apology("must provide number of shares")
 
-        ## set vars
+        # set vars
         stock_temp = request.form.get("symbol")
         stock_temp = stock_temp.upper()
         stock = lookup(stock_temp)
         shares = request.form.get("shares")
 
-        ## shares format err
+        # shares format err
         if not shares.isdigit():
             return apology("shares should be a whole number")
         elif int(shares) <= 0:
             return apology("buy at least one share")
-
 
         shares = int(shares)
         quote = stock.get("price")
@@ -221,21 +213,19 @@ def buy():
             # FOREIGN KEY(u_id) REFERENCES users(id));
             balance -= total
             symbol = stock.get("symbol")
-            db.execute("INSERT INTO history (symbol, quote, shares, total, time, u_id) VALUES(?, ?, ?, ?, ?, ?)", symbol, quote, shares, total, time, session["user_id"])
+            db.execute(
+                "INSERT INTO history (symbol, quote, shares, total, time, u_id) VALUES(?, ?, ?, ?, ?, ?)", symbol, quote, shares, total, time, session["user_id"])
             db.execute("UPDATE users SET cash = (?) WHERE id = (?)", balance, session["user_id"])
 
         flash("({}) Successfully bought {} shares of {} at a price of {}\rCurrent balance: {}".format(time, shares, symbol, quote, balance))
         return redirect("/")
 
 
-
-############################
-##                        ##
-##        History         ##
-##                        ##
-############################
-
-
+###########################
+##                       ##
+##        History        ##
+##                       ##
+###########################
 
 
 @app.route("/history")
@@ -252,21 +242,18 @@ def history():
 # u_id INTEGER NOT NULL,
 # FOREIGN KEY(u_id) REFERENCES users(id));
 
-    history = db.execute("SELECT symbol AS Symbol, shares AS Shares, quote AS Quote, time AS Time FROM history WHERE u_id = (?)", session["user_id"])
+    history = db.execute(
+        "SELECT symbol AS Symbol, shares AS Shares, quote AS Quote, time AS Time FROM history WHERE u_id = (?)", session["user_id"])
 
     return render_template("history.html", history=history)
 
 
-
-
-############################
-##                        ##
-##          login         ##
-##  (distribution code)   ##
-##                        ##
-############################
-
-
+###########################
+##                       ##
+##         login         ##
+##  (distribution code)  ##
+##                       ##
+###########################
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -305,16 +292,12 @@ def login():
         return render_template("login.html")
 
 
-
-
 ############################
 ##                        ##
 ##         logout         ##
 ##  (distribution code)   ##
 ##                        ##
 ############################
-
-
 
 
 @app.route("/logout")
@@ -328,8 +311,6 @@ def logout():
     return redirect("/")
 
 
-
-
 ############################
 ##                        ##
 ##         quote          ##
@@ -337,22 +318,20 @@ def logout():
 ############################
 
 
-
-
 @app.route("/quote", methods=["GET", "POST"])
 @login_required
 def quote():
     """Get stock quote."""
 
-    ### Specification
-    ### When a user visits /quote via GET
-        # render one of those templates,
-        # inside of which should be an HTML form that submits to /quote via POST.
+    # Specification
+    # When a user visits /quote via GET
+    # render one of those templates,
+    # inside of which should be an HTML form that submits to /quote via POST.
 
     if request.method == "GET":
         return render_template("quote.html")
 
-    ### In response to a POST
+    # In response to a POST
         # quote can render that second template,
         # embedding within it one or more values from lookup.
 
@@ -362,11 +341,11 @@ def quote():
             return apology("invalid symbol")
         else:
             # how lookup('symbol') works:
-                # pass in a symbol (e.g., NFLX)
-                # returns a dict containing 3 keys:
-                # name, whose value is a str
-                # price, whose value is a float
-                # symbol, whose value is a str
+            # pass in a symbol (e.g., NFLX)
+            # returns a dict containing 3 keys:
+            # name, whose value is a str
+            # price, whose value is a float
+            # symbol, whose value is a str
             name = stock.get("name")
             quote = stock.get("price")
             symbol = stock.get("symbol")
@@ -375,16 +354,11 @@ def quote():
     # return apology("TODO")
 
 
-
-
-
 ############################
 ##                        ##
 ##        register        ##
 ##                        ##
 ############################
-
-
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -416,8 +390,6 @@ def register():
     return render_template("register.html")
 
 
-
-
 ############################
 ##                        ##
 ##          Sell          ##
@@ -425,18 +397,70 @@ def register():
 ############################
 
 
-
-
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
     """Sell shares of stock"""
 
+    if request.method == "GET":
+        stocks = []
+        # lines = db.execute
+        portfolio = db.execute(
+            "select symbol as symbol, sum(shares) as shares from history where u_id = (?) group by symbol", session["user_id"])
+        for stock in portfolio:
+            stocks.append(stock.get("symbol"))
+        return render_template("sell.html", stocks=stocks)
 
-    return render_template("sell.html")
+    if request.method == "POST":
+
+        if not request.form.get("shares"):
+            return apology("shares unstated")
+
+        stock_tosell = request.form.get("symbol")
+        shares_tosell = request.form.get("shares")
+
+        shares_current = db.execute(
+            "select sum(shares) as shares from history where symbol = (?) and u_id = (?)", stock_tosell, session['user_id'])
+        shares_current = int(shares_current[0]["shares"])
+
+        if not shares_tosell.isdigit() or int(shares_tosell) < 1:
+            return apology("incorrect shares format")
+        elif int(shares_tosell) > shares_current:
+            return apology("selling more than is owned")
+
+        shares_tosell = int(shares_tosell)
+        # stock_tosell = request.form.get("symbol")
+
+        cash = db.execute(
+            "select cash from users where id = (?)", session['user_id'])
+        balance = cash[0]['cash']
+
+        stock_current = lookup(stock_tosell)
+        quote = stock_current.get("price")
+
+        total = shares_tosell * quote
+        balance += total
+
+        time = datetime.now()
+
+        shares_tosell = 0 - shares_tosell
+
+        # symbol TEXT NOT NULL,
+        # quote INTEGER NOT NULL,
+        # shares INTEGER NOT NULL,
+        # total INTEGER NOT NULL,
+        # time DATETIME NOT NULL,
+        # u_id INTEGER NOT NULL,
+
+        db.execute("update users set cash = (?) where id = (?)", round(balance, 2), session['user_id'])
+        db.execute(
+            "insert into history (symbol, quote, shares, total, time, u_id) values(?, ?, ?, ?, ?, ?)", stock_tosell, quote, shares_tosell, total, time, session['user_id'])
+
+        flash("({}) Successfully sold {} shares of {} at a price of {}\rCurrent balance: {}".format(
+            time, -shares_tosell, stock_tosell, quote, balance))
+        return redirect("/")
+
     # return apology("TODO")
-
-
 
 
 ############################
