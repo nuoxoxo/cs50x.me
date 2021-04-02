@@ -5,8 +5,9 @@
 - [x] quote
   - [x] quote.html 
   - [x] quoted.html
-- [ ] buy
+- [x] buy
   - [x] buy.html
+  - [ ] expected to find "112.00" in page
 - [ ] index
   - [ ] index.html
 - [ ] sell
