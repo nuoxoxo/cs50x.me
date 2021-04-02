@@ -1,3 +1,5 @@
+<details>
+  <summary>pset#9 finance</summary>
 `official order`
 - [x] sql
 - [x] register
@@ -14,3 +16,4 @@
   - [x] sell.html
 - [x] history
   - [x] history.html
+</details>
