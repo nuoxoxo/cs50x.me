@@ -1,11 +1,11 @@
-🌵 | Web 
-:-:|:-
-F | Capstone
-4 | Network
-3 | Mail
-2 | Commerce
-1 | Wiki
-0 | Search
+🌵 | Web | CSCI S-33a
+:-:|:-|:-
+F | Capstone | 
+4 | Network | 
+3 | Mail | Pizza
+2 | Commerce | Flack
+1 | Wiki | Books
+0 | Search | Home
 
 🌱 | 🌿
 :-:|:-
