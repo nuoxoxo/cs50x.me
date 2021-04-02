@@ -71,7 +71,6 @@ int main(int argc, string argv[])
                 {
                     printf("%c", tolower(argv[1][j]));
                 }
-
             }
             else
             {
@@ -80,11 +79,7 @@ int main(int argc, string argv[])
                 // print gibberish if no break
                 break;
             }
-
         }
-
     }
-
     printf("\n");
-
 }
