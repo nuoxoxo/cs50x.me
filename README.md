@@ -1,4 +1,4 @@
-🌵 | Web | CSCI S-33a
+🌵 | Web | S-33a
 :-:|:-|:-
 F | Capstone | 
 4 | Network | 
