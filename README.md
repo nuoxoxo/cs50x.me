@@ -27,4 +27,4 @@ fp | 🥒
 🐹| a game using Lua with LÖVE
 🐭| a Chrome extension using JavaScript
 🐱| a command-line program using C
-🐶| a hardware-based application for which you program some device
+🐶| a hardware-based application with arduino or pi
