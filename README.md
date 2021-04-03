@@ -7,6 +7,16 @@ F | Capstone |
 1 | Wiki | Books
 0 | Search | Home
 
+fp | 🥒
+:-:|:-
+🐼| a web-based application using JavaScript, Python, and SQL
+🐨| an iOS app using Swift
+🐰| an Android app using Java
+🐹| a game using Lua with LÖVE
+🐭| a Chrome extension using JavaScript
+🐱| a command-line program using C
+🐶| a hardware-based application with Arduino or Raspberry Pi
+
 🌱 | 🌿
 :-:|:-
 9 | Birthdays, Finance
@@ -18,13 +28,3 @@ F | Capstone |
 3 | Sort, Plurality, Runoff, Tideman
 2 | Scrabble, Readability, Caesar, Substitution 
 1 | Population, Mario, Cash, Credit 
-
-fp | 🥒
-:-:|:-
-🐼| a web-based application using JavaScript, Python, and SQL
-🐨| an iOS app using Swift
-🐰| an Android app using Java
-🐹| a game using Lua with LÖVE
-🐭| a Chrome extension using JavaScript
-🐱| a command-line program using C
-🐶| a hardware-based application with arduino or pi
