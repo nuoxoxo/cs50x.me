@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+<form action="/sell" method="post">
+    <div class="form-group">
+        <button type="button" class="btn btn-light">Symbol</button>
+        <select name="symbol" class="form-control" autofocus style="width: 152px">
+            {% for stock in stocks %}
+                <option>{{ stock }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-light">Shares</button>
+        <input name="shares" type="text" placeholder="Shares" class="form-control" autocomplete="off">
+    </div>
+
+        <!--<table class="table" style="border: none">-->
+        <!--    <tr>-->
+        <!--        <td style="text-align:right">-->
+        <!--            <button type="button" class="btn btn-light">Symbol</button>-->
+        <!--        </td>-->
+        <!--        <td style="text-align:left">-->
+        <!--            <select name="symbol" class="form-control" autofocus style="width: 152px">-->
+        <!--                {% for stock in stocks %}-->
+        <!--                    <option>{{ stock }}</option>-->
+        <!--                {% endfor %}-->
+        <!--            </select>-->
+        <!--        </td>-->
+        <!--    </tr>-->
+        <!--    <tr>-->
+        <!--        <td style="text-align:right">-->
+        <!--            <button type="button" class="btn btn-light">Shares</button>-->
+        <!--        </td>-->
+        <!--        <td style="text-align:left">-->
+        <!--            <input name="shares" type="text" placeholder="Shares" class="form-control" autocomplete="off">-->
+        <!--        </td>-->
+        <!--    </tr>-->
+        <!--</table>-->
+    </div>
+
+    <br>
+
+    <button type="submit" class="btn btn-warning">Sell</button>
+
+</form>
+{% endblock %}
