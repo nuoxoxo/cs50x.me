@@ -10,10 +10,10 @@
         <thead>
             <tr>
             <th scope="col" style="text-align:left">Symbol</th>
-            <th scope="col" style="text-align:center">Name</th>
-            <th scope="col" style="text-align:center">Shares</th>
-            <th scope="col" style="text-align:center">Quote (Current)</th>
-            <th scope="col" style="text-align:right">Equity</th>
+            <th scope="col" style="text-align:left">Name</th>
+            <th scope="col" style="text-align:left">Shares</th>
+            <th scope="col" style="text-align:left">Quote (Current)</th>
+            <th scope="col" style="text-align:left">Equity</th>
             </tr>
         </thead>
 
@@ -22,10 +22,10 @@
             {% for stock in stocks %}
             <tr>
                 <td style="text-align:left">{{ stock["symbol"] }}</td>
-                <td style="text-align:center">{{ stock["name"] }}</td>
-                <td style="text-align:center">{{ stock["shares"] }}</td>
-                <td style="text-align:center">{{ stock["quote"] }}</td>
-                <td style="text-align:right">{{ stock["total"] }}</td>
+                <td style="text-align:left">{{ stock["name"] }}</td>
+                <td style="text-align:left">{{ stock["shares"] }}</td>
+                <td style="text-align:left">{{ stock["quote"] }}</td>
+                <td style="text-align:left">{{ stock["total"] }}</td>
             </tr>
             {% endfor %}
             <!--</tr>-->
@@ -35,27 +35,28 @@
     <!--<table class="table table-striped">-->
         <thead>
             <tr>
-            <th style="text-align:right" colspan=4 scope="col"><br>Account Overview</th>
+            <th colspan=4></th>
+            <th style="text-align:left" scope="col">Account Overview</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td colspan=2></td>
-                <td style="text-align:center">
-                    <button type="button" class="btn btn-light" style="width: 120px">Total Equity</button></td>
-                <td style="text-align:right">{{ equity }}</td>
+                <td colspan=3></td>
+                <td style="text-align:left">
+                    <button type="button" class="btn btn-light" style="width: 120px; text-align:left">Total Equity</button></td>
+                <td style="text-align:left">{{ equity }}</td>
             </tr>
             <tr>
-                <td colspan=2></td>
-                <td style="text-align:center">
-                    <button type="button" class="btn btn-light" style="width: 120px">Cash</button></td>
-                <td style="text-align:right">{{ balance }}</td>
+                <td colspan=3></td>
+                <td style="text-align:left">
+                    <button type="button" class="btn btn-light" style="width: 120px; text-align:left">Cash</button></td>
+                <td style="text-align:left">{{ balance }}</td>
             </tr>
             <tr>
-                <td colspan=2></td>
-                <td style="text-align:center">
-                    <button type="button" class="btn btn-light" style="width: 120px">Total Assets</button></td>
-                <td style="text-align:right">{{ assets }}</td>
+                <td colspan=3></td>
+                <td style="text-align:left">
+                    <button type="button" class="btn btn-light" style="width: 120px; text-align:left">Total Assets</button></td>
+                <td style="text-align:left">{{ assets }}</td>
             </tr>
         </tbody>
 
