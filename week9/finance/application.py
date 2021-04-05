@@ -53,6 +53,7 @@ if not os.environ.get("API_KEY"):
 # CREATE TABLE history (
 # transaction_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
 # symbol TEXT NOT NULL,
+# name TEXT NOT NULL, ### added afterwards
 # quote INTEGER NOT NULL,
 # shares INTEGER NOT NULL,
 # total INTEGER NOT NULL,
@@ -111,6 +112,7 @@ def index():
 
     # transaction_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     # symbol TEXT NOT NULL,
+
     # quote INTEGER NOT NULL,
     # shares INTEGER NOT NULL,
     # total INTEGER NOT NULL,
@@ -206,7 +208,6 @@ def buy():
         # print(balance)
 
         time = datetime.now()
-
         total = shares * quote
 
         if balance < total:
@@ -220,8 +221,8 @@ def buy():
             # time DATETIME NOT NULL,
             # u_id INTEGER NOT NULL,
             # FOREIGN KEY(u_id) REFERENCES users(id));
-            balance -= total
 
+            balance -= total
             balance = round(balance, 2)
 
             symbol = stock.get("symbol")
