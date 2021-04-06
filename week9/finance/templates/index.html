@@ -13,6 +13,10 @@
             <th scope="col" style="text-align:left">Name</th>
             <th scope="col" style="text-align:left">Shares</th>
             <th scope="col" style="text-align:left">Quote (Current)</th>
+
+            <th scope="col" style="text-align:left">Change</th>
+            <th scope="col" style="text-align:left">Change (Extended)</th>
+
             <th scope="col" style="text-align:left">Equity</th>
             </tr>
         </thead>
@@ -25,6 +29,10 @@
                 <td style="text-align:left">{{ stock["name"] }}</td>
                 <td style="text-align:left">{{ stock["shares"] }}</td>
                 <td style="text-align:left">{{ stock["quote"] }}</td>
+
+                <td style="text-align:left">{{ stock["change"] }}</td>
+                <td style="text-align:left">{{ stock["extchange"] }}</td>
+
                 <td style="text-align:left">{{ stock["total"] }}</td>
             </tr>
             {% endfor %}
@@ -35,25 +43,25 @@
     <!--<table class="table table-striped">-->
         <thead>
             <tr>
-            <th colspan=4></th>
+            <th colspan=6></th>
             <th style="text-align:left" scope="col">Account Overview</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td colspan=3></td>
+                <td colspan=5></td>
                 <td style="text-align:left">
                     <button type="button" class="btn btn-light" style="width: 120px; text-align:left">Total Equity</button></td>
                 <td style="text-align:left">{{ equity }}</td>
             </tr>
             <tr>
-                <td colspan=3></td>
+                <td colspan=5></td>
                 <td style="text-align:left">
                     <button type="button" class="btn btn-light" style="width: 120px; text-align:left">Cash</button></td>
                 <td style="text-align:left">{{ balance }}</td>
             </tr>
             <tr>
-                <td colspan=3></td>
+                <td colspan=5></td>
                 <td style="text-align:left">
                     <button type="button" class="btn btn-light" style="width: 120px; text-align:left">Total Assets</button></td>
                 <td style="text-align:left">{{ assets }}</td>
