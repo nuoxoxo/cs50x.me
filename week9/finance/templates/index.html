@@ -12,10 +12,10 @@
             <th scope="col" style="text-align:left">Symbol</th>
             <th scope="col" style="text-align:left">Name</th>
             <th scope="col" style="text-align:left">Shares</th>
-            <th scope="col" style="text-align:left">Quote (Current)</th>
+            <th scope="col" style="text-align:left">Price</th>
 
             <th scope="col" style="text-align:left">Change</th>
-            <th scope="col" style="text-align:left">Change (Extended)</th>
+            <th scope="col" style="text-align:left">Change %</th>
 
             <th scope="col" style="text-align:left">Equity</th>
             </tr>
@@ -31,7 +31,7 @@
                 <td style="text-align:left">{{ stock["quote"] }}</td>
 
                 <td style="text-align:left">{{ stock["change"] }}</td>
-                <td style="text-align:left">{{ stock["extchange"] }}</td>
+                <td style="text-align:left">{{ stock["changepc"] }}</td>
 
                 <td style="text-align:left">{{ stock["total"] }}</td>
             </tr>
@@ -43,8 +43,8 @@
     <!--<table class="table table-striped">-->
         <thead>
             <tr>
-            <th colspan=6></th>
-            <th style="text-align:left" scope="col">Account Overview</th>
+            <th colspan=5></th>
+            <th colspan=2 style="text-align:right" scope="col">Account Overview</th>
             </tr>
         </thead>
         <tbody>
