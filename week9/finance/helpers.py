@@ -56,7 +56,7 @@ def lookup(symbol):
             "symbol": quote["symbol"],
 
             "change": quote["change"],
-            "extchange": quote["extendedChange"],
+            "changepc": quote["changePercent"],
 
         }
     except (KeyError, TypeError, ValueError):
