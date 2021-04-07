@@ -143,9 +143,9 @@ def index():
         row["quote"] = usd(quote)
         row["total"] = usd(total)
 
-        row["change"] = stock.get("change") * shares
+        row["change"] = round(stock.get("change") * shares, 2)
         row["changepc"] = round(100 * stock.get("changepc"), 2)
-
+        
         assets += round(total, 2)
         if shares != 0:
             stocks.append(row)
