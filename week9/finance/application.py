@@ -143,7 +143,7 @@ def index():
         row["quote"] = usd(quote)
         row["total"] = usd(total)
 
-        row["change"] = stock.get("change")
+        row["change"] = stock.get("change") * shares
         row["changepc"] = round(100 * stock.get("changepc"), 2)
 
         assets += round(total, 2)
