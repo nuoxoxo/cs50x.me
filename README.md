@@ -2,7 +2,8 @@
   <thead align="left">
     <tr><th>🌵</th><th>Web</th><th>CSCI S-33a</th></tr>
   </thead>
-  <tbody>
+  <tbody>  
+    
   <tr><td>F</td><td>Capstone</td><td></td></tr>
   <tr><td>4</td><td>Network</td><td></td></tr>
   <tr><td>3</td><td>Mail</td><td>Pizza</td></tr>
