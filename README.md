@@ -1,5 +1,5 @@
 <table>
-  <thead>
+  <thead align="right">
     <tr><th>🌵</th><th>Web</th><th>CSCI S-33a</th></tr>
   </thead>
   <tbody>
