@@ -1,3 +1,18 @@
+<table>
+  <thead>
+    <tr><th>🌵</th><th>Web</th><th>CSCI S-33a</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>F</td><td>Capstone</td><td></td></tr>
+  <tr><td>4</td><td>Network</td><td></td></tr>
+  <tr><td>3</td><td>Mail</td><td>Pizza</td></tr>
+  <tr><td>2</td><td>Commerce</td><td>Flack</td></tr>
+  <tr><td>1</td><td>Wiki</td><td>Books</td></tr>
+  <tr><td>0</td><td>Search</td><td>Home</td></tr>
+  </tbody>
+</table>
+
+<!--
 🌵 | Web | CSCI S-33a
 :-:|:-|:-
 F | Capstone | 
@@ -6,6 +21,8 @@ F | Capstone |
 2 | Commerce | Flack
 1 | Wiki | Books
 0 | Search | Home
+-->
+
 
 fp | 🥒
 :-:|:-
