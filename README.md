@@ -1,4 +1,3 @@
-<details><summary></summary>
 <table>
   <thead align="left">
     <tr><th>🌵</th><th>Web</th><th>CSCI S-33a</th></tr>
@@ -82,5 +81,3 @@ fp | 🥒
 2 | Scrabble, Readability, Caesar, Substitution 
 1 | Population, Mario, Cash, Credit 
 -->
-
-<details>
