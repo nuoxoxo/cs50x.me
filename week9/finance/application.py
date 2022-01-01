@@ -136,16 +136,18 @@ def index():
         row["name"] = name
 
         # print(quote)
-
+        if (row.get("shares") == 0):
+            continue
         shares = row.get("shares")
         total = shares * quote
 
         row["quote"] = usd(quote)
         row["total"] = usd(total)
 
-        row["change"] = round(stock.get("change") * shares, 2)
-        row["changepc"] = round(100 * stock.get("changepc"), 2)
-        
+        #print(stock)
+        row["change"] = round(shares * stock.get("price"), 2)
+        row["changepc"] = round(100 * stock.get("price"), 2)
+
         assets += round(total, 2)
         if shares != 0:
             stocks.append(row)
@@ -499,6 +501,3 @@ def errorhandler(e):
 # Listen for errors
 for code in default_exceptions:
     app.errorhandler(code)(errorhandler)
-
-
-#
